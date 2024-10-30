@@ -1,0 +1,21 @@
+{
+  "name": "lieu-city-plugin",
+  "version": "1.0.0",
+  "description": "=== Lieu.city - easily include the vr experience in your website === Contributors: lieucity Donate link: Tags: lieu, art, vr, exhibition, artist, vr-exhibition, oculus, social, nft, magento, artwork Requires at least: 5.0 Tested up to: 6.1.1 Stable tag: 1.0 Requires PHP: 7.0 License: GPLv2 or later License URI: https://www.gnu.org/licenses/gpl-2.0.html",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://project.icustomitaly-dev.com/openproject/git/lieu-wordpress.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^6.2.1",
+    "bootstrap": "^5.2.3",
+    "jquery-nice-select": "^1.1.0",
+    "shufflejs": "^6.1.0"
+  }
+}

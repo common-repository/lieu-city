@@ -1,0 +1,192 @@
+.login-page__header{
+    justify-content: center;
+}
+
+.login-page__header .lieu-logo {
+    width: 100%;
+    max-width: 6.25rem;
+    /*100px*/
+}
+
+.login-page__container {
+    min-height: 100vh !important;
+    /*padding: 1em !important;
+    background-color: #333;
+    background-image: url(https://www.exibart.com/repository/media/2021/12/Mostra-LIEU-Leonardo-da-Vinci-Realt%C3%A0-Virtuale-preview-September-41637245060134.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;*/
+}
+
+.login-page__section:not(.login-page__footer) {
+    margin-bottom: 2em;
+}
+
+.login-page__header {
+    display: flex;
+    min-height: 10vh;
+    margin-top: 2rem !important;
+}
+
+.login-page__content {
+    min-height: 80vh;
+    display: flex;
+    justify-content: center;
+}
+
+.login-page__footer {
+    min-height: 10vh;
+}
+
+.login-page__form-wrapper {
+    max-width: 28rem;
+    width: 28rem;
+    padding: 4em 3em;
+    background-color: #f9f9f9;
+    height: fit-content;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);    
+}
+
+.login-page__form .login-page__form-header {
+    text-align: center;
+    padding-bottom: 2em;
+}
+
+.login-form-header-title {
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+/**CODICE PER MOBILE**/
+@media (max-width: 992px) {
+    .login-page__header {
+        justify-content: center;
+    }
+
+    .login-page__header .lieu-logo {
+        max-width: 5rem;
+        /*80px*/
+    }
+
+    .login-page__form-wrapper {
+        padding: 4em 1.5em;
+    }
+}
+
+/**LOGIN INPUTS**/
+
+.login-input-container {
+    position: relative;
+    float: left;
+    width: 100%;
+    margin-bottom: 1.5em;
+}
+
+.login-input-container .login-input {
+    backface-visibility: hidden;
+    float: left;
+    width: 100%;
+    border: 0;
+    background-color: rgb(255 221 221);
+    padding: 1.2em 2em 0.6em 0.6em;
+    font-weight: bold;
+    border-radius: 1vmin;
+}
+
+.login-input-container:not(.login-invalid-field) .login-input {
+    background-color: #ededed;
+}
+
+.login-input-container .login-input:focus,
+.login-input-container .login-input:active {
+    outline: 2px solid firebrick;
+}
+
+.login-input-container:not(.login-invalid-field) .login-input:focus,
+.login-input-container:not(.login-invalid-field) .login-input:active {
+    outline: 2px solid black;
+}
+
+.login-input-container:not(.login-invalid-field) .login-input:hover {
+    background-color: #e7e7e7;
+}
+
+.login-input-container .login-input+label {
+    margin: 0 !important;
+    line-height: 0;
+    position: absolute;
+    left: 1.2em;
+    top: 50%;
+    font-size: 0.7em;
+    transform: translate(-50%);
+    -webkit-transform: translateY(-50%);
+    transition: all 0.25s;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: firebrick;
+}
+
+.login-input-container:not(.login-invalid-field) .login-input+label {
+    color: #444;
+}
+
+.login-input-container .login-input:focus+label,
+.login-input-container .not-empty+label {
+    line-height: 0.8em;
+    left: 0.8em;
+    top: 0.4em;
+    -webkit-transform: none;
+    transform: none;
+}
+
+.not-empty+label {
+    color: #aaa !important;
+}
+
+.invalid-login-feedback {
+    display: block;
+    position: absolute;
+    top: 100%;
+    width: 100%;
+    font-size: 0.75em;
+    font-weight: 600;
+    color: firebrick;
+}
+
+.login-input-container:not(.login-invalid-field) .invalid-login-feedback {
+    display: none;
+}
+
+.field-icon {
+    position: absolute;
+    right: 0.375em;
+    cursor: pointer;
+    top: 50%;
+    transform: translateY(-50%);
+    backface-visibility: hidden;
+    z-index: 2;
+    color: firebrick;
+}
+
+.login-input-container:not(.login-invalid-field) .field-icon {
+    color: #444;
+}
+
+.login-input-container .toggle-password.toggled::before {
+    font: var(--fa-font-solid);
+    content: "\f06e";
+}
+
+.login-input-container .toggle-password::before {
+    font: var(--fa-font-solid);
+    content: "\f070";
+}
+
+.social-button-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding: 1em 0;
+    gap: 1rem;
+}

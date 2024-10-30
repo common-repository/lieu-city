@@ -1,0 +1,295 @@
+@supports (-webkit-appearance: none) or (-moz-appearance: none) {
+
+    input[type='checkbox'],
+    input[type='radio'] {
+        --active: #5628EE;
+        --active-inner: #fff;
+        --input-border: #CDD9ED;
+        --input-border-hover: #ddd;
+        --background: #fff;
+        --disabled: #F5F9FF;
+        --disabled-inner: #E4ECFA;
+        --shadow-inner: rgba(18, 22, 33, 0.1);
+        height: 21px;
+        outline: none;
+        position: relative;
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        margin: 0;
+        padding: 0;
+        box-shadow: none!important;
+        cursor: pointer;
+        height: 21px;
+        border: 1px solid var(--input-border)!important;
+        background: var(--background);
+        transition: background 0.3s ease, border-color 0.3s ease;
+    }
+
+    input[type='checkbox']:after,
+    input[type='radio']:after {
+        content: '';
+        display: block;
+        left: 0;
+        top: 0;
+        position: absolute;
+        transition: transform 0.3s ease, opacity 0.2s ease, filter 0.3s ease;
+    }
+
+    input[type='checkbox']:checked,
+    input[type='radio']:checked {
+        background: var(--active);
+        border-color: var(--active);
+    }
+    
+    input[type='checkbox']:checked:before,
+    input[type='radio']:checked:before {
+        content : ""!important;
+    }
+
+    input[type='checkbox']:checked:after,
+    input[type='radio']:checked:after {
+        filter: drop-shadow(0 1px 2px var(--shadow-inner));
+        transition: opacity 0.3s ease, filter 0.3s ease, transform 0.6s cubic-bezier(0.175, 0.88, 0.32, 1.2);
+    }
+
+    input[type='checkbox']:disabled,
+    input[type='radio']:disabled {
+        cursor: not-allowed;
+        opacity: 0.9;
+        background: var(--disabled);
+    }
+
+    input[type='checkbox']:disabled:checked,
+    input[type='radio']:disabled:checked {
+        background: var(--disabled-inner);
+        border-color: var(--input-border);
+    }
+
+    input[type='checkbox']:hover:not(:checked):not(:disabled),
+    input[type='radio']:hover:not(:checked):not(:disabled) {
+        border-color: var(--input-border-hover);
+    }
+
+    input[type='checkbox']:not(.switch),
+    input[type='radio']:not(.switch) {
+        width: 21px;
+    }
+
+    input[type='checkbox']:not(.switch):after,
+    input[type='radio']:not(.switch):after {
+        opacity: 0;
+    }
+
+    input[type='checkbox']:not(.switch):checked:after,
+    input[type='radio']:not(.switch):checked:after {
+        opacity: 1;
+    }
+
+    input[type='checkbox']:not(.switch) {
+        border-radius: 6px;
+    }
+
+    input[type='checkbox']:not(.switch):after {
+        width: 5px;
+        height: 9px;
+        border: 2px solid var(--active-inner);
+        border-top: 0;
+        border-left: 0;
+        left: 7px;
+        top: 4px;
+        transform: rotate(20deg);
+    }
+
+    input[type='checkbox']:not(.switch):checked:after {
+        transform: rotate(43deg);
+    }
+
+    input[type='checkbox'].switch {
+        width: 38px;
+        border-radius: 11px;
+    }
+
+    input[type='checkbox'].switch:after {
+        left: 2px;
+        top: 2px;
+        border-radius: 50%;
+        width: 15px;
+        height: 15px;
+        background: var(--input-border);
+    }
+
+    input[type='checkbox'].switch:checked:after {
+        background: var(--active-inner);
+        transform: translateX(17px);
+    }
+
+    input[type='checkbox'].switch:disabled:not(:checked):after {
+        opacity: 0.6;
+    }
+
+    input[type='radio'] {
+        border-radius: 50%;
+    }
+
+    input[type='radio']:after {
+        width: 19px;
+        height: 19px;
+        border-radius: 50%;
+        background: var(--active-inner);
+        opacity: 0;
+        transform: scale(0.7);
+    }
+
+    input[type='radio']:checked:after {
+        background: var(--active-inner);
+        transform: scale(0.5);
+    }
+
+    /**Login switch**/
+    .keep_login_switch[type='checkbox']:checked {
+        --active: gray;
+        background: var(--active);
+        border-color: var(--active);
+    }
+}
+
+
+
+
+
+
+
+/**Gui switch**/
+/*
+.gui-switch {
+    --thumb-size: 1.2rem;
+    --thumb: hsl(0, 0%, 100%);
+    --thumb-highlight: hsla(0, 0%, 0%, 0.25);
+    --track-size: calc(var(--thumb-size) * 2);
+    --track-padding: 2px;
+    --track-inactive: hsl(80, 0%, 80%);
+    --track-active: hsl(80, 60%, 45%);
+    --thumb-color: var(--thumb);
+    --thumb-color-highlight: var(--thumb-highlight);
+    --track-color-inactive: var(--track-inactive);
+    --track-color-active: var(--track-active);
+    --isLTR: 1;
+    display: inline-flex;
+    align-items: center;
+    gap: 1ch;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.gui-switch:dir(rtl) {
+    --isLTR: -1;
+}
+
+.gui-switch>input {
+    --thumb-position: 0%;
+    --thumb-transition-duration: 0.25s;
+    padding: var(--track-padding);
+    background: var(--track-color-inactive);
+    inline-size: var(--track-size);
+    block-size: var(--thumb-size);
+    border-radius: var(--track-size);
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    pointer-events: none;
+    touch-action: pan-y;
+    border: none;
+    outline-offset: 5px;
+    box-sizing: content-box;
+    flex-shrink: 0;
+    display: grid;
+    align-items: center;
+    grid: [track] 1fr / [track] 1fr;
+    transition: background-color 0.25s ease;
+}
+
+.gui-switch>input::before {
+    --highlight-size: 0;
+    content: "";
+    cursor: pointer;
+    pointer-events: auto;
+    grid-area: track;
+    inline-size: var(--thumb-size);
+    block-size: var(--thumb-size);
+    background: var(--thumb-color);
+    box-shadow: 0 0 0 var(--highlight-size) var(--thumb-color-highlight),
+        0 0 0 1px hsl(0 0% 0% / 15%), 0px 3px 4px 1px hsl(0 0% 0% / 20%);
+    border-radius: 50%;
+    transform: translateX(var(--thumb-position));
+    transition: transform var(--thumb-transition-duration) ease,
+        box-shadow 0.25s ease;
+}
+
+
+.gui-switch.gui-switch-xs {
+    --thumb-size: 0.8rem;
+}
+
+.gui-switch.gui-switch-sm {
+    --thumb-size: 1rem;
+}
+
+.gui-switch.gui-switch-xl {
+    --thumb-size: 1.5rem;
+}
+
+
+.gui-switch.gui-switch-primary {
+    --track-active: hsl(216, 98%, 52%);
+    --thumb-highlight: hsl(216 98% 52% / 25%);
+}
+
+.gui-switch.gui-switch-secondary {
+    --track-active: hsl(208, 7%, 46%);
+    --thumb-highlight: hsl(208 7% 46% / 25%);
+}
+
+.gui-switch.gui-switch-success {
+    --track-active: hsl(152, 69%, 31%);
+    --thumb-highlight: hsl(152 69% 31% / 25%);
+}
+
+.gui-switch.gui-switch-info {
+    --track-active: hsl(190, 90%, 50%);
+    --thumb-highlight: hsl(190 90% 50% / 25%);
+}
+
+.gui-switch.gui-switch-warning {
+    --track-active: hsl(45, 100%, 51%);
+    --thumb-highlight: hsl(45 100% 51% / 25%);
+}
+
+.gui-switch.gui-switch-danger {
+    --track-active: hsl(354, 70%, 54%);
+    --thumb-highlight: hsl(354 70% 54% / 25%);
+}
+
+
+.gui-switch>input:not(:disabled):hover::before {
+    --highlight-size: 0.5rem;
+}
+
+.gui-switch>input:checked {
+    background: var(--track-color-active);
+    --thumb-position: calc((var(--track-size) - 100%) * var(--isLTR));
+}
+
+.gui-switch>input:disabled {
+    cursor: not-allowed;
+    --thumb-color: transparent;
+}
+
+.gui-switch>input:disabled::before {
+    cursor: not-allowed;
+    box-shadow: inset 0 0 0 2px hsla(0, 0%, 100%, 0.5);
+}*/
